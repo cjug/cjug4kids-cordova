@@ -1,3 +1,9 @@
-var test = function(input) {
-	return "Test";
+var hideandseek = {};
+
+
+
+hideandseek.gameHost ="";
+
+hideandseek.redirectTo = function(page) {
+	window.location = page;
 }
