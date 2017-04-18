@@ -1,4 +1,3 @@
-var turn = 'x';
 var svgContainer = d3.select("main")
   .append("svg")
     .attr("width",  300)
@@ -16,27 +15,19 @@ svgContainer.selectAll('rect')
   .attr("class", 'cell')
   .on('click', function(position) {
     if (boxes[position] === value_Blank) {
-	  if(turn == 'x')
-	  {
-		placeX(position);
-		turn = 'o';
-	  }
-	  else
-	  {
-		placeO(position);
-		turn = 'x';
-	  }
+    	
+    	toggleTurn(position);
 	  
-	  var judgement = judge(boxes);
+	  var judgement = checkForWin(boxes);
 
-      if (judgement === judgement_draw) {
+      if (judgement === draw) {
         alert('Draw!');
         location.reload();
-      } else if(judgement === judgement_win) {
+      } else if(judgement === win_o) {
           alert('O wins!');
           location.reload();
       }
-	  else if(judgement === judgement_lose) {
+	  else if(judgement === win_x) {
 		  alert('X wins!');
 		  location.reload();
 	  }
