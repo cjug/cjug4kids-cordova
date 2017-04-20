@@ -32,38 +32,27 @@ function toggleTurn(position) {
 }
 
 function checkForWin(data) {
-  // No blanks? we are draw
-  if (data.every(function(d){return d !== value_Blank})) {
-    return draw;
-  }
-
+  
   var results = [];
-  //rows
-  results[0] = data[0] + data[1] + data[2];
-  results[1] = data[3] + data[4] + data[5];
-  results[2] = data[6] + data[7] + data[8];
-  //colums
-  results[3] = data[0] + data[3] + data[6];
-  results[4] = data[1] + data[4] + data[7];
-  results[5] = data[2] + data[5] + data[8];
-  //diagonal lines
-  results[6] = data[0] + data[4] + data[8];
-  results[7] = data[2] + data[4] + data[6];
-
-  if (results.some(function(result){return result === win_o})) {
-    return win_o;
+  
+  checkSet(data, results, 0,1,2);
+  checkSet(data, results, 3,4,5);
+  checkSet(data, results, 6,7,8);
+  
+  checkSet(data, results, 0,3,6);
+  checkSet(data, results, 1,4,7);
+  checkSet(data, results, 2,5,8);
+  
+  checkSet(data, results, 0,4,8);
+  checkSet(data, results, 2,4,6);
+  
+  if(results[0])
+  {
+	  return results[0];
   }
-
-  if (results.some(function(result){return result === win_x})) {
-    return win_x;
-  }
-  var isDraw = true;
-  for(var i = 0; i < 9; i++) {
-	  if(data[i] != 0)
-	  {
-		  isDraw = false;
-	  }
-  }
+  
+  var isDraw = checkDraw(data);
+  
   
   if(isDraw)
   {
@@ -75,3 +64,27 @@ function checkForWin(data) {
 	  return open_game;
   }
 };
+
+function checkSet(data, results, first, middle, last) {
+	var sum = data[first] + data[middle] + data[last];
+	if(sum == 3)
+	{
+		results.push(win_o);
+	}
+	else if(sum == -3)
+	{
+		results.push(win_x)
+	}
+	
+}
+
+function checkDraw(data) {
+	var isDraw = true;
+	for(var i = 0; i < 9; i++) {
+		  if(data[i] == 0)
+		  {
+			  isDraw = false;
+		  }
+	  }
+	return isDraw;
+}
