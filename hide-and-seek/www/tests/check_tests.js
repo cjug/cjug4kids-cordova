@@ -36,11 +36,21 @@ describe("check", function () {
     	document.getElementById("row").value = "A";
     	document.getElementById("col").value = "1";
         // Check the results; "expect" and toEqual are Jasmine methods.
-    	hideandseek.checkSpot();
+    	hideandseek.checkSpotButtonAction();
     	expect(cordovaHTTP.post).toHaveBeenCalled();
     	var mostRecentCall = cordovaHTTP.post.calls.mostRecent();
     	expect(mostRecentCall.args[0]).toEqual('http://10.0.2.2:8890/games/hide-and-seek/check');
     	expect(mostRecentCall.args[1]).toEqual({'row': 'A', 'col': '1'});
+    	expect(mostRecentCall.args[2]).toEqual({'playerId': '123'});
+    });
+    
+    it("test check spot by row", function() {
+    	document.getElementById("row").value = "A";
+    	hideandseek.checkSpotByRow();
+    	expect(cordovaHTTP.post).toHaveBeenCalled();
+    	var mostRecentCall = cordovaHTTP.post.calls.mostRecent();
+    	expect(mostRecentCall.args[0]).toEqual('http://10.0.2.2:8890/games/hide-and-seek/check');
+    	expect(mostRecentCall.args[1]).toEqual({'row': 'A', 'col': '10'});
     	expect(mostRecentCall.args[2]).toEqual({'playerId': '123'});
     });
     

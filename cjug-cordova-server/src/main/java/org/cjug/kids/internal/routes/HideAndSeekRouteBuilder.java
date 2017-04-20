@@ -51,6 +51,8 @@ public class HideAndSeekRouteBuilder extends RouteBuilder {
 			
 			@Override
 			public void process(Exchange exchange) throws Exception {
+				
+				Map<String, String> result = new HashMap<>();
 				String playerId = exchange.getIn().getHeader("playerId", String.class);
 				
 				if(!mainGrid.isPlayerActive(playerId))
@@ -66,14 +68,19 @@ public class HideAndSeekRouteBuilder extends RouteBuilder {
 					mainGrid.getGameGridPanel().triggerGrid(pos.getRow(), pos.getCol());
 					PlayerPanel playerPanel = mainGrid.getPlayerPanelMap().get(foundPlayer.getTeam());
 					playerPanel.eliminatePlayer(foundPlayer);
+					result.put("message", "You found " + foundPlayer.getName() + "!");
+					
 				}
 				else
 				{
 					mainGrid.getGameGridPanel().setGridColor(pos.getRow(), pos.getCol(), Color.BLUE);
+					result.put("message", "Spot is empty");
 				}
+				
+				exchange.getIn().setBody(result);
 			}
-		})
-		.setBody(simple("null"));
+		});
+
 		
 		from("direct:registerPlayer")
 		.process(new Processor() {

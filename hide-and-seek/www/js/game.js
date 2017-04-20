@@ -45,10 +45,7 @@ hideandseek.processCheck = function(response) {
 	
 	try {
 		response.data = JSON.parse(response.data);
-		// prints test
-		//console.log(JSON.stringify(response.data));
-		document.getElementById("message").innerHTML = "User Registered with id " + response.data.id;
-		window.localStorage.setItem("playerId", response.data.id);
+		document.getElementById("message").innerHTML = response.data.message;
 		window.location = "check.html";
 	} catch(e) {
 		console.error("JSON parsing error");
@@ -56,9 +53,9 @@ hideandseek.processCheck = function(response) {
 	}
 }
 
-hideandseek.checkSpot = function() {
+hideandseek.checkSpot = function(position) {
 	var playerIdValue = window.localStorage.getItem("playerId");
-	cordovaHTTP.post(hideandseek.serverHost + "/games/hide-and-seek/check", hideandseek.mapInputFromCheck()
+	cordovaHTTP.post(hideandseek.serverHost + "/games/hide-and-seek/check", position
 			, {playerId: playerIdValue}, 
 			hideandseek.processCheck
 			, function(response) {
@@ -72,10 +69,24 @@ hideandseek.checkSpot = function() {
 		});
 }
 
+hideandseek.checkSpotByRow = function(){
+	var result = {};
+	result.row = document.getElementById("row").value;
+	for(var col =1; col <= 10; col++)
+	{
+		result.col = col +"";
+		hideandseek.checkSpot(result);
+	}
+}
+
+hideandseek.checkSpotButtonAction = function() {
+	hideandseek.checkSpot(hideandseek.mapInputFromCheck());
+}
+
 hideandseek.registerPlayer = function() {
 	cordovaHTTP.post(hideandseek.serverHost + "/games/hide-and-seek/register", 
 			hideandseek.mapInputFromReg(),
-			{}, hideandseek.proccessPlayerRegistration, function(response) {
+			{}, hideandseek.processPlayerRegistration, function(response) {
 			// prints 403
 			console.log(response.status);
 			
@@ -92,5 +103,6 @@ hideandseek.initRegPage = function() {
 
 
 hideandseek.initCheckPage = function(){
-	document.getElementById("check").onclick = hideandseek.checkSpot;
+	document.getElementById("check").onclick = hideandseek.checkSpotButtonAction;
+	document.getElementById("checkRow").onclick = hideandseek.checkSpotByRow;
 }

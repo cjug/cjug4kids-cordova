@@ -40,6 +40,8 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+        window.cordovaHTTP = cordova.plugin.http;
+        cordovaHTTP.setDataSerializer("json");
     }
 };
 
