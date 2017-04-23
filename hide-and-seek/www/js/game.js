@@ -1,4 +1,4 @@
-hideandseek.serverHost = "http://10.0.2.2:8890";
+hideandseek.serverHost = "http://192.168.1.2:8890";
 
 hideandseek.mapInputFromCheck = function() {
 	var result = {};

@@ -38,9 +38,9 @@ aliceClient.personSay = function(message) {
 	var personIdValue = window.localStorage.getItem("personId");
 	cordovaHTTP.post(aliceClient.serverHost + "/games/alice/person/say", 
 			aliceClient.createPersonSayInput(message),
-			{"personId": personIdValue}, aliceClient.processPersonResponse, function(response) {
+			{"personId": personIdValue}, null, function(response) {
 			response.error = JSON.parse(response.error);
-			document.getElementById("message").innerHTML = "Error: " + response.error.error;
+			alert("Error: " + response.error.error);
 		});
 }
 
@@ -64,10 +64,10 @@ aliceClient.personMove = function(direction) {
 		});
 }
 
-aliceClient.personTurn = function() {
+aliceClient.personTurn = function(direction) {
 	var personIdValue = window.localStorage.getItem("personId");
 	cordovaHTTP.post(aliceClient.serverHost + "/games/alice/person/turn", 
-			aliceClient.createMoveInput(),
+			aliceClient.createMoveInput(direction),
 			{"personId": personIdValue}, null, function(response) {
 			response.error = JSON.parse(response.error);
 			alert("Error: " + response.error.error);

@@ -42,8 +42,40 @@
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received">Device is Ready</p>
             </div>
+            <form>
+					<!-- Create Name Text Box -->
+					<div>
+				        <input type="button" onclick="aliceClient.createPerson('Odin')" value="Create">
+				    </div>
+				    <div>
+				        <input type="button" onclick="aliceClient.personSay('Hi')" value="Say Hi">
+				    </div>
+				    <div>
+				        <input type="button" onclick="aliceClient.personJump()" value="Jump">
+				    </div>
+				    <div>
+				        <input type="button" onclick="aliceClient.personMove('right')" value="right">
+				    </div>
+				    <div>
+				        <input type="button" onclick="aliceClient.personMove('left')" value="left">
+				    </div>
+				    <div>
+				        <input type="button" onclick="aliceClient.personMove('up')" value="up">
+				    </div>
+				    <div>
+				        <input type="button" onclick="aliceClient.personMove('down')" value="down">
+				    </div>
+				    <div>
+				        <input type="button" onclick="aliceClient.personTurn('right')" value="turn right">
+				    </div>
+				    <div>
+				        <input type="button" onclick="aliceClient.personTurn('left')" value="turn left">
+				   </div>
+		</form>
         </div>
+        
         <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/core.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
     </body>
 </html>
