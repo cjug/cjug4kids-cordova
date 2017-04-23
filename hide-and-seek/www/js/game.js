@@ -1,30 +1,53 @@
 hideandseek.serverHost = "http://192.168.1.2:8890";
 
+
+/*
+ * Copy values from form to register a new player
+ * 
+ */
+hideandseek.mapInputFromReg = function() {
+	//Create an object
+	
+	//read in the playerName value
+	
+	//read in the team value
+	
+	//create the position object
+	
+	//read in the row value
+	
+	//read in the col value
+	
+	//return the object
+}
+
+/
 hideandseek.mapInputFromCheck = function() {
-	var result = {};
+	//create an object
+
+	//read in the row to check
 	
-	result.row = document.getElementById("row").value;
-	result.col = document.getElementById("col").value;
+	//read in the col to check
 	
-	return result;
+	//return the object
+	
 	
 }
 
-hideandseek.mapInputFromReg = function() {
-	var result = {};
-	
-	result.name = document.getElementById("playerName").value;
-	result.team = document.getElementById("team").value;
-	result.pos = {};
-	result.pos.row = document.getElementById("row").value;
-	result.pos.col = document.getElementById("col").value;
-	
-	return result;
+hideandseek.checkSpotByRow = function(){
+	//create an object
+
+	//read the row to check
+
+	//loop from col 1 to 10 
+
+		//convert integer to string
+
+		//check spot
+	//end loop
 }
 
 hideandseek.processPlayerRegistration = function(response) {
-	// prints 200
-	console.log(response.status);
 	
 	try {
 		response.data = JSON.parse(response.data);
@@ -67,16 +90,6 @@ hideandseek.checkSpot = function(position) {
 			response.error = JSON.parse(response.error);
 			document.getElementById("message").innerHTML = "Error: " + response.error.error;
 		});
-}
-
-hideandseek.checkSpotByRow = function(){
-	var result = {};
-	result.row = document.getElementById("row").value;
-	for(var col =1; col <= 10; col++)
-	{
-		result.col = col +"";
-		hideandseek.checkSpot(result);
-	}
 }
 
 hideandseek.checkSpotButtonAction = function() {

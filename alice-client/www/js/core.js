@@ -1,23 +1,31 @@
 window.aliceClient = {};
 
 aliceClient.serverHost = "http://192.168.1.2:8283"
-
+/*
+ * 
+ * Create a new person
+ * 
+ */
 aliceClient.createPersonInput = function(type) {
-	var result = {};
-	result.type = type;
-	return result;
+	
 }
 
+/*
+ * 
+ * Have the person say something
+ * 
+ */
 aliceClient.createPersonSayInput = function(message) {
-	var result = {};
-	result.message = message;
-	return result;
+	
 }
 
+/*
+ * 
+ * Create an input to move
+ * 
+ */
 aliceClient.createMoveInput = function(direction) {
-	var result = {};
-	result.direction = direction;
-	return result;
+	
 }
 
 aliceClient.processPersonResponse = function(response) {

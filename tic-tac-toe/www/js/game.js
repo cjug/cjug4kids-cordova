@@ -17,74 +17,98 @@ var boxes = [
   draw = board_size * value_Blank,
   win_o  = board_size * value_O,
   win_x = board_size * value_X;
-  
+ 
+/*
+ * 
+ * Place the x or o and switch turns
+ * 
+ */
 function toggleTurn(position) {
-	if(turn == 'x')
-	{
-		placeX(position);
-		turn = 'o';
-	}
-	else
-	{
-		placeO(position);
-		turn = 'x';
-	}
+	// check if it's x's turn 
+
+		//placeX in position
+		
+		//make o's turn
+
+	//end if
+	
+	//else
+	
+		//placeO in position
+
+		//make x's turn
+	
+	//end else
 }
-
-function checkForWin(data) {
-  
-  var results = [];
-  
-  checkSet(data, results, 0,1,2);
-  checkSet(data, results, 3,4,5);
-  checkSet(data, results, 6,7,8);
-  
-  checkSet(data, results, 0,3,6);
-  checkSet(data, results, 1,4,7);
-  checkSet(data, results, 2,5,8);
-  
-  checkSet(data, results, 0,4,8);
-  checkSet(data, results, 2,4,6);
-  
-  if(results[0])
-  {
-	  return results[0];
-  }
-  
-  var isDraw = checkDraw(data);
-  
-  
-  if(isDraw)
-  {
-	  return draw;
-  }
-  else
-  {
-	  // There are still more moves can be made.
-	  return open_game;
-  }
-};
-
+/*
+ * 
+ * Checks if there are 3 of the same value in first, middle and third
+ * 
+ */
 function checkSet(data, results, first, middle, last) {
-	var sum = data[first] + data[middle] + data[last];
-	if(sum == 3)
-	{
-		results.push(win_o);
-	}
-	else if(sum == -3)
-	{
-		results.push(win_x)
-	}
+	// Add up the data elements for first, middle, and last
+
+	//check if sum means o wins
+
+		//push a result of o winning
+
+	//end if
+	
+	//check else if sum means x wins
+
+		//push a result of x winning
+
+	//end if
 	
 }
 
 function checkDraw(data) {
-	var isDraw = true;
-	for(var i = 0; i < 9; i++) {
-		  if(data[i] == 0)
-		  {
-			  isDraw = false;
-		  }
-	  }
-	return isDraw;
+	//start by assuming there is a draw
+
+	//loop over each element of data
+
+		//check if any of them are empty
+
+			  //if any are empty we do not have a draw yet
+
+		  //end if
+
+	//end loop
+	
+	//return result
+
 }
+
+/*
+ * 
+ * Check for a win
+ * 
+ */
+function checkForWin(data) {
+  //initialize empty results array
+  
+  //check horizontal rows
+
+  //check vertical cols
+
+  //check diagonals
+
+  
+  //check if we got any win results
+
+	  //return the winning result
+
+  //end if
+  
+  //check to see if we have a draw
+
+	  //return the draw
+
+  //end if
+  
+  //else we still play
+
+	  //return open game
+
+  //end else
+};
