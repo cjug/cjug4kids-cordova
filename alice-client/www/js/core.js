@@ -1,5 +1,7 @@
 window.aliceClient = {};
 
+aliceClient.serverHost = "http://192.168.1.2:8283"
+
 aliceClient.createPersonInput = function(type) {
 	var result = {};
 	result.type = type;
