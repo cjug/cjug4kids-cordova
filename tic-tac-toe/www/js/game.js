@@ -3,20 +3,20 @@
 var turn = 'x';
 
 var boxes = [
-    0,0,0,
-    0,0,0,
-    0,0,0
+    '','','',
+    '','','',
+    '','',''
   ], 
   board_size  = 3,
 
-  value_X     = -1,
-  value_O     = 1,
-  value_Blank = 0,
+  value_X     = 'x',
+  value_O     = 'o',
+  value_Blank = '',
 
-  open_game = -2,
-  draw = board_size * value_Blank,
-  win_o  = board_size * value_O,
-  win_x = board_size * value_X;
+  open_game = 'open',
+  draw = 'draw',
+  win_o  = value_O,
+  win_x = value_X;
   
 function toggleTurn(position) {
 	if(turn == 'x')
@@ -67,11 +67,11 @@ function checkForWin(data) {
 
 function checkSet(data, results, first, middle, last) {
 	var sum = data[first] + data[middle] + data[last];
-	if(sum == 3)
+	if(sum == 'ooo')
 	{
 		results.push(win_o);
 	}
-	else if(sum == -3)
+	else if(sum == 'xxx')
 	{
 		results.push(win_x)
 	}
@@ -81,7 +81,7 @@ function checkSet(data, results, first, middle, last) {
 function checkDraw(data) {
 	var isDraw = true;
 	for(var i = 0; i < 9; i++) {
-		  if(data[i] == 0)
+		  if(data[i] == value_Blank)
 		  {
 			  isDraw = false;
 		  }

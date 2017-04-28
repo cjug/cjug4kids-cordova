@@ -58,7 +58,6 @@
 
 ## Change who's turn it is
 
-
 	//if x's turn then o's turn next
 	//if o's turn then x's turn next
 
@@ -66,7 +65,7 @@
 	{
       	turn = 'o';
 	}
-		else
+	else
 	{
        turn = 'x';
 	}
@@ -97,3 +96,49 @@
 
 
 ## Who Won?
+
+### What does a tic tac toe to you and me
+
+<table frame="box">
+<tr>
+<td>x</td>
+<td>o</td>
+<td>x</td>
+</tr>
+<tr>
+<td>o</td>
+<td>x</td>
+<td>o</td>
+</tr>
+<tr>
+<td>o</td>
+<td>o</td>
+<td>x</td>
+</tr>
+</table>
+
+
+### What about a computer?
+
+	['x', 'o', 'x', 'o', 'x', 'o', 'o', 'o', 'x']
+	
+
+### OR
+	
+	['x', 'o', 'x',
+	 'o', 'x', 'o',
+	 'o', 'o', 'x']
+	 
+### Arrays
+
+	var box = [];
+
+
+### Setting Array values
+	
+	box[0] = 'x';
+	
+
+### Getting Array Values
+
+	var value = box[0];
