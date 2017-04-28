@@ -183,4 +183,55 @@
 	val result = box[0] + box[1] + box[2]
 
 
-### 	
+### What about a Draw?
+
+#### Conditions
+* No one has won
+* No boxes left
+
+
+### Checking for draw
+
+* We can already check for winning
+* How can we check for no boxes left?
+
+	//Check each box for ''
+
+
+### Looping
+
+#### Couting from 0 to 9
+	
+	for(var i = 0; i < 9; i++) {
+	}
+
+
+### Checking for a blank 
+	val isDraw = true;
+	for(var i = 0; i < 9; i++) {
+		if(data[i] == value_Blank)
+		{
+			isDraw = false;
+		}
+	}
+
+
+### Returning the result
+
+	val isDraw = true;
+	for(var i = 0; i < 9; i++) {
+		if(data[i] == value_Blank)
+		{
+			isDraw = false;
+		}
+	}
+	return isDraw;
+
+
+### Putting together who won
+
+* Determine all winning combos (Horizontal, Vertical, Diagonal)
+* Check if someone has won
+* Check if there's a draw
+* Otherwise keep playing
+* Make sure all tests pass!

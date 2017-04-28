@@ -17,4 +17,4 @@ April 30, 2017
 ## What is Open Source?
 
 
-## What is an API?
+## What is Apache Cordova
