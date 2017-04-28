@@ -128,17 +128,59 @@
 	['x', 'o', 'x',
 	 'o', 'x', 'o',
 	 'o', 'o', 'x']
-	 
+
+
 ### Arrays
 
 	var box = [];
 
 
 ### Setting Array values
-	
+
 	box[0] = 'x';
-	
+
 
 ### Getting Array Values
 
 	var value = box[0];
+
+
+### What does winning look like to you
+
+<table frame="box">
+<tr>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr>
+<td>o</td>
+<td>x</td>
+<td>o</td>
+</tr>
+<tr>
+<td>o</td>
+<td>o</td>
+<td>x</td>
+</tr>
+</table>
+
+
+### What does it look like to the computer
+	
+	var box  = ['x', 'x', 'x', 'o', 'x', 'o', 'o', 'o', 'x'];
+
+#### or 
+
+	box[0]
+	box[1]
+	box[2]
+
+
+### Putting Array values together
+
+	// 'xxx'
+	val result = box[0] + box[1] + box[2]
+
+
+### 	

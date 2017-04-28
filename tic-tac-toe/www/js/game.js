@@ -69,11 +69,11 @@ function checkSet(data, results, first, middle, last) {
 	var sum = data[first] + data[middle] + data[last];
 	if(sum == 'ooo')
 	{
-		results.push(win_o);
+		results[0] = win_o;
 	}
 	else if(sum == 'xxx')
 	{
-		results.push(win_x)
+		results[0] = win_x;
 	}
 	
 }
