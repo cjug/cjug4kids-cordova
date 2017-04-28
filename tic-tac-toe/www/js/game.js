@@ -3,26 +3,21 @@
 var turn = 'x';
 
 var boxes = [
-    0,0,0,
-    0,0,0,
-    0,0,0
+    '','','',
+    '','','',
+    '','',''
   ], 
   board_size  = 3,
 
-  value_X     = -1,
-  value_O     = 1,
-  value_Blank = 0,
+  value_X     = 'x',
+  value_O     = 'o',
+  value_Blank = '',
 
-  open_game = -2,
-  draw = board_size * value_Blank,
-  win_o  = board_size * value_O,
-  win_x = board_size * value_X;
- 
-/*
- * 
- * Place the x or o and switch turns
- * 
- */
+  open_game = 'open',
+  draw = 'draw',
+  win_o  = value_O,
+  win_x = value_X;
+  
 function toggleTurn(position) {
 	// check if it's x's turn 
 
@@ -46,17 +41,17 @@ function toggleTurn(position) {
  * 
  */
 function checkSet(data, results, first, middle, last) {
-	// Add up the data elements for first, middle, and last
+	// Add the data elements for first, middle, and last
 
-	//check if sum means o wins
+	//check if 'ooo' o wins
 
-		//push a result of o winning
+		//set a result of o winning
 
 	//end if
 	
-	//check else if sum means x wins
+	//check else if 'xxx' means x wins
 
-		//push a result of x winning
+		//set a result of x winning
 
 	//end if
 	
