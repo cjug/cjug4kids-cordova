@@ -5,6 +5,50 @@ aliceClient.serverHost = "http://192.168.1.2:8283"
  * 
  * Create a new person
  * 
+ * Valid Types
+Alice	
+Alien	
+Bat	
+BigBadWolf	
+BlackCat	
+Bunny	
+CheshireCat	
+Curupira	
+Freya	
+Ghost	
+GoldenMonkey	
+Hare	
+IceSkater	
+Loki	
+MadHatter	
+Mandril	
+Mapinguari	
+MarchHare	
+MonkeyKing	
+Odin	
+Ogre	
+Panda	
+Pig	
+Pixie	
+PlayingCard	
+PumpkinHead	
+QueenOfHearts	
+Rakshasa	
+Skadi	
+Skeleton	
+SnowMan	
+SnowWoman	
+StuffedTiger	
+Thor	
+Tortoise	
+Troll	
+Utahraptor	
+Valkyrie	
+WhiteRabbit	
+Witch	
+YetiBaby	
+Yeti	
+ * 
  */
 aliceClient.createPersonInput = function(type) {
 	
