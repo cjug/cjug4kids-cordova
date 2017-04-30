@@ -26,7 +26,6 @@
 
 ## Defining a Variable
 
-
 	var turn = 'x';
 
 
