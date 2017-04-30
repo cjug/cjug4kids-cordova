@@ -51,7 +51,9 @@ Yeti
  * 
  */
 aliceClient.createPersonInput = function(type) {
-	
+	var result = {};
+	result.type = type;
+	return result;
 }
 
 /*
@@ -60,7 +62,9 @@ aliceClient.createPersonInput = function(type) {
  * 
  */
 aliceClient.createPersonSayInput = function(message) {
-	
+	var result = {};
+	result.message = message;
+	return result;
 }
 
 /*
@@ -69,7 +73,9 @@ aliceClient.createPersonSayInput = function(message) {
  * 
  */
 aliceClient.createMoveInput = function(direction) {
-	
+	var result = {};
+	result.direction = direction;
+	return result;
 }
 
 aliceClient.processPersonResponse = function(response) {
