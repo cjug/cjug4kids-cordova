@@ -58,16 +58,19 @@
 
 ## Change who's turn it is
 
-	//if x's turn then o's turn next
-	//if o's turn then x's turn next
-
-	if(turn == 'x')
-	{
-      	turn = 'o';
-	}
-	else
-	{
-       turn = 'x';
+	//tic-tac-toe/www/js/game.js
+	function toggleTurn(position) {
+		//if x's turn then o's turn next
+		//if o's turn then x's turn next
+	
+		if(turn == 'x')
+		{
+	      	turn = 'o';
+		}
+		else
+		{
+	       turn = 'x';
+		}
 	}
 
 
@@ -78,15 +81,18 @@
 
 ## Place the X or O
 
-	if(turn == 'x')
-	{
-		placeX(position);
-		turn = 'o';
-	}
-	else
-	{
-		placeO(position);
-		turn = 'x';
+	//tic-tac-toe/www/js/game.js
+	function toggleTurn(position) {
+		if(turn == 'x')
+		{
+			placeX(position);
+			turn = 'o';
+		}
+		else
+		{
+			placeO(position);
+			turn = 'x';
+		}
 	}
 
 
@@ -177,10 +183,36 @@
 	box[2]
 
 
-### Putting Array values together
+### Putting x's and o's together
 
 	// 'xxx'
-	val result = box[0] + box[1] + box[2]
+	val result = first + middle + last;
+
+
+### What does o winning look like?
+
+	function checkSet(results, first, middle, last) {
+		var sum = first + middle + last;
+		if(sum == 'ooo')
+		{
+			results[0] = win_o;
+		}
+	}
+
+
+### What does x winning look like?
+
+	function checkSet(results, first, middle, last) {
+		var sum = first + middle + last;
+		if(sum == 'ooo')
+		{
+			results[0] = win_o;
+		}
+		else if(sum == 'xxx')
+		{
+			results[0] = win_x;
+		}
+	}
 
 
 ### What about a Draw?
@@ -201,37 +233,52 @@
 ### Looping
 
 #### Couting from 0 to 9
-	
-	for(var i = 0; i < 9; i++) {
+
+	function checkDraw(data) {
+		for(var i = 0; i < 9; i++) {
+		}
 	}
 
 
 ### Checking for a blank 
-	val isDraw = true;
-	for(var i = 0; i < 9; i++) {
-		if(data[i] == value_Blank)
-		{
-			isDraw = false;
+
+	function checkDraw(data) {
+		val isDraw = true;
+		for(var i = 0; i < 9; i++) {
+			if(data[i] == value_Blank)
+			{
+				isDraw = false;
+			}
 		}
 	}
 
 
 ### Returning the result
 
-	val isDraw = true;
-	for(var i = 0; i < 9; i++) {
-		if(data[i] == value_Blank)
-		{
-			isDraw = false;
+	function checkDraw(data) {
+		val isDraw = true;
+		for(var i = 0; i < 9; i++) {
+			if(data[i] == value_Blank)
+			{
+				isDraw = false;
+			}
 		}
+		return isDraw;
 	}
-	return isDraw;
 
 
 ### Putting together who won
+
+```
+var results = [];
+checkSet(results, data[0], data[1], data[2]);
+```
 
 * Determine all winning combos (Horizontal, Vertical, Diagonal)
 * Check if someone has won
 * Check if there's a draw
 * Otherwise keep playing
 * Make sure all tests pass!
+
+
+	

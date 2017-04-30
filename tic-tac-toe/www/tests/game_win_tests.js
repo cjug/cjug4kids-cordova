@@ -167,21 +167,21 @@ describe("checkForWin", function () {
 	it("check set x wins", function() {
 		var set = ['x', 'x', 'x'];
 		var results = [];
-		checkSet(set, results, 0, 1, 2);
+		checkSet(results, set[0], set[1], set[2]);
 		expect(results[0]).toEqual(win_x);
 	});
 	
 	it("check set o wins", function() {
 		var set = ['o', 'o', 'o'];
 		var results = [];
-		checkSet(set, results, 0, 1, 2);
+		checkSet(results, set[0], set[1], set[2]);
 		expect(results[0]).toEqual(win_o);
 	});
 	
 	it("check set open", function() {
 		var set = ['o', '', 'o'];
 		var results = [];
-		checkSet(set, results, 0, 1, 2);
+		checkSet(results, set[0], set[1], set[2]);
 		expect(results.length).toEqual(0);
 	});
 	

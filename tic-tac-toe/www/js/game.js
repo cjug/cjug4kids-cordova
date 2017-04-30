@@ -35,16 +35,16 @@ function checkForWin(data) {
   
   var results = [];
   
-  checkSet(data, results, 0,1,2);
-  checkSet(data, results, 3,4,5);
-  checkSet(data, results, 6,7,8);
+  checkSet(results, data[0], data[1], data[2]);
+  checkSet(results, data[3], data[4], data[5]);
+  checkSet(results, data[6], data[7], data[8]);
   
-  checkSet(data, results, 0,3,6);
-  checkSet(data, results, 1,4,7);
-  checkSet(data, results, 2,5,8);
+  checkSet(results, data[0], data[3], data[6]);
+  checkSet(results, data[1], data[4], data[7]);
+  checkSet(results, data[2], data[5], data[8]);
   
-  checkSet(data, results, 0,4,8);
-  checkSet(data, results, 2,4,6);
+  checkSet(results, data[0], data[4], data[8]);
+  checkSet(results, data[2], data[4], data[6]);
   
   if(results[0])
   {
@@ -65,8 +65,8 @@ function checkForWin(data) {
   }
 };
 
-function checkSet(data, results, first, middle, last) {
-	var sum = data[first] + data[middle] + data[last];
+function checkSet(results, first, middle, last) {
+	var sum = first + middle + last;
 	if(sum == 'ooo')
 	{
 		results[0] = win_o;
