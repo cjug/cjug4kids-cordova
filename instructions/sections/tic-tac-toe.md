@@ -3,8 +3,6 @@
 
 ## Start the app
 
-## Unzip Folder tic-tac-toe.zip
-
 
 ## Open Directory
 
@@ -271,6 +269,7 @@
 
 ```
 var results = [];
+//Row 1 across
 checkSet(results, data[0], data[1], data[2]);
 ```
 
