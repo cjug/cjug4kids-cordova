@@ -31,7 +31,7 @@ public class Main extends JFrame {
 
     public Main() {
     	
-    	setTitle ("First Swing Example");
+    	setTitle ("CJUG 4 Kids");
 
     	setSize (1500, 1000);
 

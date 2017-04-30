@@ -19,6 +19,7 @@ public class CoreRouteBuilder extends RouteBuilder {
 		.apiProperty("api.version", "1.0.0")
 		// and enable CORS
 		.apiProperty("cors", "true")
+		.apiProperty("host", "192.168.1.2:8890")
 		.enableCORS(true);
 		
 		interceptFrom("rest:/games/{gameName}/*").to("direct:checkGameName");
