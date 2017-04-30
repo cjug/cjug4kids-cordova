@@ -40,7 +40,7 @@ function toggleTurn(position) {
  * Checks if there are 3 of the same value in first, middle and third
  * 
  */
-function checkSet(data, results, first, middle, last) {
+function checkSet(results, first, middle, last) {
 	// Add the data elements for first, middle, and last
 
 	//check if 'ooo' o wins
