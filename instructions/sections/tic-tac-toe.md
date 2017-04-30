@@ -157,8 +157,8 @@
 <td>x</td>
 </tr>
 <tr>
-<td>o</td>
 <td>x</td>
+<td>o</td>
 <td>o</td>
 </tr>
 <tr>
@@ -171,7 +171,7 @@
 
 ### What does it look like to the computer
 	
-	var box  = ['x', 'x', 'x', 'o', 'x', 'o', 'o', 'o', 'x'];
+	var box  = ['x', 'x', 'x', 'x', 'o', 'o', 'o', 'o', 'x'];
 
 #### or 
 
